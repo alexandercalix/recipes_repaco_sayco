@@ -1,0 +1,19 @@
+﻿@using MudBlazor
+@inject NavigationManager Navigation
+@inject IJSRuntime JSRuntime
+
+<MudMenu Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End">
+    <MudMenuItem OnClick="@(() => ChangeCulture("en-US"))">English</MudMenuItem>
+    <MudMenuItem OnClick="@(() => ChangeCulture("es-ES"))">Español</MudMenuItem>
+</MudMenu>
+
+@code {
+    private async Task ChangeCulture(string culture)
+    {
+        // Store culture in cookie
+        await JSRuntime.InvokeVoidAsync("blazorCulture.set", culture);
+
+        // Reload the app to apply culture
+        Navigation.NavigateTo(Navigation.Uri, forceLoad: true);
+    }
+}

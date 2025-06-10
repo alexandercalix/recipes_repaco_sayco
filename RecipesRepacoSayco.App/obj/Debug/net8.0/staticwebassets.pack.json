@@ -1,10 +1,6 @@
 {
   "Files": [
     {
-      "Id": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/obj/Debug/net8.0/scopedcss/projectbundle/RecipesRepacoSayco.App.bundle.scp.css",
-      "PackagePath": "staticwebassets/RecipesRepacoSayco.App.e498ar1j7b.bundle.scp.css"
-    },
-    {
       "Id": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/wwwroot/css/bootstrap/bootstrap.min.css",
       "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css"
     },
@@ -55,6 +51,10 @@
     {
       "Id": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/wwwroot/favicon.png",
       "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/wwwroot/js/site.js",
+      "PackagePath": "staticwebassets/js/site.js"
     },
     {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.RecipesRepacoSayco.App.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

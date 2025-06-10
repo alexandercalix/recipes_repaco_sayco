@@ -4,6 +4,15 @@
     <ProjectReference Include="..\RecipesRepacoSayco.Core\RecipesRepacoSayco.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Drivers/" />
+    <Folder Include="Managers/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="S7netplus" Version="0.20.0" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>

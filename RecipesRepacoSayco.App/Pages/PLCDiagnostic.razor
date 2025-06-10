@@ -1,0 +1,41 @@
+﻿@inject PlcStatusService StatusService
+
+@page "/diagnostic"
+
+<MudPaper Class="pa-4 m-4">
+    <MudText Typo="Typo.h6">PLC Status</MudText>
+
+    <MudDivider Class="my-2" />
+
+    <MudText><b>IP:</b> @StatusService.IpAddress</MudText>
+    <MudText Color="@((StatusService.IsConnected ? Color.Success : Color.Error))">
+        <b>Connection:</b> @(StatusService.IsConnected ? "Connected" : "Disconnected")
+    </MudText>
+    @if (!string.IsNullOrEmpty(StatusService.LastError))
+    {
+        <MudAlert Severity="Severity.Error" Class="my-2">
+            @StatusService.LastError
+        </MudAlert>
+    }
+
+    <MudDivider Class="my-2" />
+    <MudText Typo="Typo.subtitle1">Event Log (last 20)</MudText>
+    <MudList T="string" Dense="true">
+        @foreach (var item in StatusService.EventLog)
+        {
+            <MudListItem>@item</MudListItem>
+        }
+    </MudList>
+</MudPaper>
+
+@code {
+    protected override void OnInitialized()
+    {
+        StatusService.OnStatusChanged += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        StatusService.OnStatusChanged -= StateHasChanged;
+    }
+}

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "25XUKV+RX72az9Smsj5tsX2NMdw5VsraKP3syn+UdPw=",
+  "Hash": "R3Vw9D/wbk286jFLMOK1N2ESe7v3QWCpIeiwj6dMB7c=",
   "Source": "RecipesRepacoSayco.App",
   "BasePath": "_content/RecipesRepacoSayco.App",
   "Mode": "Default",
@@ -17,46 +17,46 @@
   ],
   "Assets": [
     {
-      "Identity": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/obj/Debug/net8.0/scopedcss/bundle/RecipesRepacoSayco.App.styles.css",
-      "SourceId": "RecipesRepacoSayco.App",
-      "SourceType": "Computed",
-      "ContentRoot": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/obj/Debug/net8.0/scopedcss/bundle/",
-      "BasePath": "_content/RecipesRepacoSayco.App",
-      "RelativePath": "RecipesRepacoSayco.App#[.{fingerprint}]?.styles.css",
+      "Identity": "/Users/oscarcalix/.nuget/packages/mudblazor/8.7.0/staticwebassets/MudBlazor.min.css",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "/Users/oscarcalix/.nuget/packages/mudblazor/8.7.0/staticwebassets/",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.css",
       "AssetKind": "All",
-      "AssetMode": "CurrentProject",
+      "AssetMode": "All",
       "AssetRole": "Primary",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "e498ar1j7b",
-      "Integrity": "0rnZQhIPvdGul/WHQUnp1YQN1vEpVXXJN/GiIQCRqmA=",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "f7451o6lak",
+      "Integrity": "dbrztyw7cpD/dvGeaqylyRiNofbn9I08NpD/6iCdbjA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/obj/Debug/net8.0/scopedcss/bundle/RecipesRepacoSayco.App.styles.css"
+      "OriginalItemSpec": "/Users/oscarcalix/.nuget/packages/mudblazor/8.7.0/staticwebassets/MudBlazor.min.css"
     },
     {
-      "Identity": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/obj/Debug/net8.0/scopedcss/projectbundle/RecipesRepacoSayco.App.bundle.scp.css",
-      "SourceId": "RecipesRepacoSayco.App",
-      "SourceType": "Computed",
-      "ContentRoot": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/obj/Debug/net8.0/scopedcss/projectbundle/",
-      "BasePath": "_content/RecipesRepacoSayco.App",
-      "RelativePath": "RecipesRepacoSayco.App#[.{fingerprint}]!.bundle.scp.css",
+      "Identity": "/Users/oscarcalix/.nuget/packages/mudblazor/8.7.0/staticwebassets/MudBlazor.min.js",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "/Users/oscarcalix/.nuget/packages/mudblazor/8.7.0/staticwebassets/",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.js",
       "AssetKind": "All",
-      "AssetMode": "Reference",
+      "AssetMode": "All",
       "AssetRole": "Primary",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "e498ar1j7b",
-      "Integrity": "0rnZQhIPvdGul/WHQUnp1YQN1vEpVXXJN/GiIQCRqmA=",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "shgs22i5w1",
+      "Integrity": "gCxH2RI5xXVkxLFgcHgDuyoXu7IWZwdvZ5USM+27dIk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/obj/Debug/net8.0/scopedcss/projectbundle/RecipesRepacoSayco.App.bundle.scp.css"
+      "OriginalItemSpec": "/Users/oscarcalix/.nuget/packages/mudblazor/8.7.0/staticwebassets/MudBlazor.min.js"
     },
     {
       "Identity": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/wwwroot/css/bootstrap/bootstrap.min.css",
@@ -304,8 +304,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "zh9s866nx2",
-      "Integrity": "Fx+c1youNLgejKLBM3S2fD6fcDOSv/D7tNQKm5gws6U=",
+      "Fingerprint": "5ipweew5fc",
+      "Integrity": "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/site.css"
@@ -330,9 +330,194 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.png"
+    },
+    {
+      "Identity": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/wwwroot/js/site.js",
+      "SourceId": "RecipesRepacoSayco.App",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/wwwroot/",
+      "BasePath": "_content/RecipesRepacoSayco.App",
+      "RelativePath": "js/site#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "42x5w46too",
+      "Integrity": "ZHk9o6Pr6urqqwp5mwvjTG2qtwJ5EwVOj61jnZHlK4E=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/site.js"
     }
   ],
   "Endpoints": [
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.css",
+      "AssetFile": "/Users/oscarcalix/.nuget/packages/mudblazor/8.7.0/staticwebassets/MudBlazor.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "604382"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"dbrztyw7cpD/dvGeaqylyRiNofbn9I08NpD/6iCdbjA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 08:29:34 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-dbrztyw7cpD/dvGeaqylyRiNofbn9I08NpD/6iCdbjA="
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.f7451o6lak.css",
+      "AssetFile": "/Users/oscarcalix/.nuget/packages/mudblazor/8.7.0/staticwebassets/MudBlazor.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "604382"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"dbrztyw7cpD/dvGeaqylyRiNofbn9I08NpD/6iCdbjA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 08:29:34 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "f7451o6lak"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-dbrztyw7cpD/dvGeaqylyRiNofbn9I08NpD/6iCdbjA="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/MudBlazor/MudBlazor.min.css"
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.js",
+      "AssetFile": "/Users/oscarcalix/.nuget/packages/mudblazor/8.7.0/staticwebassets/MudBlazor.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "73018"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gCxH2RI5xXVkxLFgcHgDuyoXu7IWZwdvZ5USM+27dIk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 08:29:34 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gCxH2RI5xXVkxLFgcHgDuyoXu7IWZwdvZ5USM+27dIk="
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.shgs22i5w1.js",
+      "AssetFile": "/Users/oscarcalix/.nuget/packages/mudblazor/8.7.0/staticwebassets/MudBlazor.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "73018"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gCxH2RI5xXVkxLFgcHgDuyoXu7IWZwdvZ5USM+27dIk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 08:29:34 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "shgs22i5w1"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gCxH2RI5xXVkxLFgcHgDuyoXu7IWZwdvZ5USM+27dIk="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/MudBlazor/MudBlazor.min.js"
+        }
+      ]
+    },
     {
       "Route": "css/bootstrap/bootstrap.min.bpk8xqwxhs.css",
       "AssetFile": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/wwwroot/css/bootstrap/bootstrap.min.css",
@@ -1236,6 +1421,51 @@
       ]
     },
     {
+      "Route": "css/site.5ipweew5fc.css",
+      "AssetFile": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/wwwroot/css/site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 07 Jun 2025 15:10:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5ipweew5fc"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
       "Route": "css/site.css",
       "AssetFile": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/wwwroot/css/site.css",
       "Selectors": [],
@@ -1246,7 +1476,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2978"
+          "Value": "0"
         },
         {
           "Name": "Content-Type",
@@ -1254,11 +1484,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Fx+c1youNLgejKLBM3S2fD6fcDOSv/D7tNQKm5gws6U=\""
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 07 Jun 2025 02:40:17 GMT"
+          "Value": "Sat, 07 Jun 2025 15:10:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1268,52 +1498,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Fx+c1youNLgejKLBM3S2fD6fcDOSv/D7tNQKm5gws6U="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.zh9s866nx2.css",
-      "AssetFile": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/wwwroot/css/site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2978"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"Fx+c1youNLgejKLBM3S2fD6fcDOSv/D7tNQKm5gws6U=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 07 Jun 2025 02:40:17 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "zh9s866nx2"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-Fx+c1youNLgejKLBM3S2fD6fcDOSv/D7tNQKm5gws6U="
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
         }
       ]
     },
@@ -1400,8 +1585,8 @@
       ]
     },
     {
-      "Route": "RecipesRepacoSayco.App.bundle.scp.css",
-      "AssetFile": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/obj/Debug/net8.0/scopedcss/projectbundle/RecipesRepacoSayco.App.bundle.scp.css",
+      "Route": "js/site.42x5w46too.js",
+      "AssetFile": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/wwwroot/js/site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1410,56 +1595,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2895"
+          "Value": "439"
         },
         {
           "Name": "Content-Type",
-          "Value": "text/css"
+          "Value": "text/javascript"
         },
         {
           "Name": "ETag",
-          "Value": "\"0rnZQhIPvdGul/WHQUnp1YQN1vEpVXXJN/GiIQCRqmA=\""
+          "Value": "\"ZHk9o6Pr6urqqwp5mwvjTG2qtwJ5EwVOj61jnZHlK4E=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 07 Jun 2025 02:43:12 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-0rnZQhIPvdGul/WHQUnp1YQN1vEpVXXJN/GiIQCRqmA="
-        }
-      ]
-    },
-    {
-      "Route": "RecipesRepacoSayco.App.e498ar1j7b.bundle.scp.css",
-      "AssetFile": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/obj/Debug/net8.0/scopedcss/projectbundle/RecipesRepacoSayco.App.bundle.scp.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2895"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"0rnZQhIPvdGul/WHQUnp1YQN1vEpVXXJN/GiIQCRqmA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 07 Jun 2025 02:43:12 GMT"
+          "Value": "Sat, 07 Jun 2025 22:14:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1469,21 +1617,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "e498ar1j7b"
+          "Value": "42x5w46too"
         },
         {
           "Name": "label",
-          "Value": "RecipesRepacoSayco.App.bundle.scp.css"
+          "Value": "js/site.js"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-0rnZQhIPvdGul/WHQUnp1YQN1vEpVXXJN/GiIQCRqmA="
+          "Value": "sha256-ZHk9o6Pr6urqqwp5mwvjTG2qtwJ5EwVOj61jnZHlK4E="
         }
       ]
     },
     {
-      "Route": "RecipesRepacoSayco.App.e498ar1j7b.styles.css",
-      "AssetFile": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/obj/Debug/net8.0/scopedcss/bundle/RecipesRepacoSayco.App.styles.css",
+      "Route": "js/site.js",
+      "AssetFile": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/wwwroot/js/site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1492,64 +1640,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2895"
+          "Value": "439"
         },
         {
           "Name": "Content-Type",
-          "Value": "text/css"
+          "Value": "text/javascript"
         },
         {
           "Name": "ETag",
-          "Value": "\"0rnZQhIPvdGul/WHQUnp1YQN1vEpVXXJN/GiIQCRqmA=\""
+          "Value": "\"ZHk9o6Pr6urqqwp5mwvjTG2qtwJ5EwVOj61jnZHlK4E=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 07 Jun 2025 02:43:12 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "e498ar1j7b"
-        },
-        {
-          "Name": "label",
-          "Value": "RecipesRepacoSayco.App.styles.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-0rnZQhIPvdGul/WHQUnp1YQN1vEpVXXJN/GiIQCRqmA="
-        }
-      ]
-    },
-    {
-      "Route": "RecipesRepacoSayco.App.styles.css",
-      "AssetFile": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/obj/Debug/net8.0/scopedcss/bundle/RecipesRepacoSayco.App.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2895"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"0rnZQhIPvdGul/WHQUnp1YQN1vEpVXXJN/GiIQCRqmA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 07 Jun 2025 02:43:12 GMT"
+          "Value": "Sat, 07 Jun 2025 22:14:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1559,7 +1662,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-0rnZQhIPvdGul/WHQUnp1YQN1vEpVXXJN/GiIQCRqmA="
+          "Value": "sha256-ZHk9o6Pr6urqqwp5mwvjTG2qtwJ5EwVOj61jnZHlK4E="
         }
       ]
     }

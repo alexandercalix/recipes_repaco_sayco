@@ -15,6 +15,9 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.MudDebugAnalyzer = 
+build_property.MudAllowedAttributePattern = 
+build_property.MudAllowedAttributeList = 
 build_property.RootNamespace = RecipesRepacoSayco.App
 build_property.RootNamespace = RecipesRepacoSayco.App
 build_property.ProjectDir = /Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/
@@ -44,6 +47,30 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/Pages/PLCDiagnostic.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUExDRGlhZ25vc3RpYy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/Shared/Components/Filter/FilterComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0NvbXBvbmVudHMvRmlsdGVyL0ZpbHRlckNvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/Shared/Components/LenguajeSelector/LanguageSelector.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0NvbXBvbmVudHMvTGVuZ3VhamVTZWxlY3Rvci9MYW5ndWFnZVNlbGVjdG9yLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/Shared/Components/ReportGrid/ReportGridComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0NvbXBvbmVudHMvUmVwb3J0R3JpZC9SZXBvcnRHcmlkQ29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1N1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -51,14 +78,6 @@ build_metadata.AdditionalFiles.CssScope =
 [/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/Shared/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-2cejp33k80
-
-[/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/Shared/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-81q7pu0h6v
 
 [/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s

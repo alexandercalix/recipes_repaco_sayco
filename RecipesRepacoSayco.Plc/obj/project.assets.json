@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "S7netplus/0.20.0": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/S7.Net.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/S7.Net.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "RecipesRepacoSayco.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -15,6 +28,31 @@
     }
   },
   "libraries": {
+    "S7netplus/0.20.0": {
+      "sha512": "XAubZ076bhWHQZlnBkzwQO4WxqF5ofwhrkDxfBhGbeD1JC1jBDn3EbWIqMLW6+G0RsxzxirSjLERCQZPfjwGdw==",
+      "type": "package",
+      "path": "s7netplus/0.20.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/S7.Net.dll",
+        "lib/net452/S7.Net.xml",
+        "lib/net462/S7.Net.dll",
+        "lib/net462/S7.Net.xml",
+        "lib/net5.0/S7.Net.dll",
+        "lib/net5.0/S7.Net.xml",
+        "lib/net6.0/S7.Net.dll",
+        "lib/net6.0/S7.Net.xml",
+        "lib/net7.0/S7.Net.dll",
+        "lib/net7.0/S7.Net.xml",
+        "lib/netstandard1.3/S7.Net.dll",
+        "lib/netstandard1.3/S7.Net.xml",
+        "lib/netstandard2.0/S7.Net.dll",
+        "lib/netstandard2.0/S7.Net.xml",
+        "s7netplus.0.20.0.nupkg.sha512",
+        "s7netplus.nuspec"
+      ]
+    },
     "RecipesRepacoSayco.Core/1.0.0": {
       "type": "project",
       "path": "../RecipesRepacoSayco.Core/RecipesRepacoSayco.Core.csproj",
@@ -23,7 +61,8 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "RecipesRepacoSayco.Core >= 1.0.0"
+      "RecipesRepacoSayco.Core >= 1.0.0",
+      "S7netplus >= 0.20.0"
     ]
   },
   "packageFolders": {
@@ -73,6 +112,12 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
+        "dependencies": {
+          "S7netplus": {
+            "target": "Package",
+            "version": "[0.20.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

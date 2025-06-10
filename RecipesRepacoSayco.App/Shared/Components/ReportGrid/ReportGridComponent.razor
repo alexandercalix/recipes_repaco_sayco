@@ -1,0 +1,105 @@
+﻿@using Microsoft.Extensions.Options
+@using RecipesRepacoSayco.App.Models
+@inject IOptions<MaterialLabelOptions> MaterialOptions
+@inject IStringLocalizer<ReportGridComponent> L
+@inject NavigationManager NavManager
+@inject HttpClient http;
+@inject IJSRuntime JS ;
+
+
+@if (FilteredBatches == null || !FilteredBatches.Any())
+{
+    <p>@L["EmptyMessage"]</p>
+}
+else
+{
+
+    <MudCard Elevation="5">
+        <MudCardHeader>
+            <MudCardContent Class="w-100 d-flex align-center justify-between">
+                <MudText Typo="Typo.h5">@L["ReportTitle"]</MudText>
+                <MudIconButton Icon="@Icons.Material.Filled.ImportExport" Color="Color.Success" Class="ml-auto"
+                    OnClick="GenerateExcel" />
+            </MudCardContent>
+        </MudCardHeader>
+        <MudCardContent Class="p-0">
+
+            <MudTable Items="@FilteredBatches" Dense="true" Hover="true" Bordered="true" Elevation="0" Loading="@IsLoading"
+                Class="mb-4">
+                <HeaderContent>
+                    <MudTh>@L["Product"]</MudTh>
+                    <MudTh>@L["Start"]</MudTh>
+                    <MudTh>@L["End"]</MudTh>
+                    @foreach (var label in MaterialOptions.Value.MaterialLabels)
+                    {
+                        <MudTh>@label</MudTh>
+
+                    }
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd>@context.ProductName</MudTd>
+                    <MudTd>@context.StartTime.ToString("yyyy-MM-dd HH:mm")</MudTd>
+                    <MudTd>@context.EndTime?.ToString("yyyy-MM-dd HH:mm")</MudTd>
+                    <MudTd>
+                        <div style="line-height: 1.2;">
+                            <div>@L["Teoric"] @context.Setpoint1</div>
+                            <div>@L["Real"] @context.ActualValue1</div>
+                        </div>
+                    </MudTd>
+                    <MudTd>
+                        <div style="line-height: 1.2;">
+                            <div>@L["Teoric"] @context.Setpoint2</div>
+                            <div>@L["Real"] @context.ActualValue2</div>
+                        </div>
+                    </MudTd>
+                    <MudTd>
+                        <div style="line-height: 1.2;">
+                            <div>@L["Teoric"] @context.Setpoint3</div>
+                            <div>@L["Real"] @context.ActualValue3</div>
+                        </div>
+                    </MudTd>
+                    <MudTd>
+                        <div style="line-height: 1.2;">
+                            <div>@L["Teoric"] @context.Setpoint4</div>
+                            <div>@L["Real"] @context.ActualValue4</div>
+                        </div>
+                    </MudTd>
+                </RowTemplate>
+            </MudTable>
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => { /* Add export logic here */ })">
+                @L["Export"]
+            </MudButton>
+        </MudCardActions>
+    </MudCard>
+
+
+}
+
+@code {
+    [Parameter] public BatchFilterModel Filter { get; set; }
+    [Parameter] public bool IsLoading { get; set; } = false;
+    [Parameter] public IEnumerable<BatchProcess> FilteredBatches { get; set; } = new List<BatchProcess>();
+
+    private async Task GenerateExcel()
+    {
+        var filter = Filter;
+
+        if (filter != null && filter.StartDate.HasValue && filter.EndDate.HasValue)
+        {
+            var baseUri = NavManager.BaseUri;
+            var url = $"{baseUri}api/excel/export?startDate={filter.StartDate:O}&endDate={filter.EndDate:O}";
+
+            if (!string.IsNullOrWhiteSpace(filter.SearchText))
+                url += $"&searchText={Uri.EscapeDataString(filter.SearchText)}";
+
+            await JS.InvokeVoidAsync("window.open", url, "_blank");
+        }
+        else
+        {
+            Console.WriteLine("Missing date range");
+        }
+    }
+
+}

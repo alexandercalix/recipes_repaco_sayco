@@ -1,0 +1,74 @@
+﻿@using RecipesRepacoSayco.App.Models
+@inject IStringLocalizer<FilterComponent> L
+
+<MudCard Class="mt-4 w-100" Elevation="5">
+    <MudCardHeader>
+        <MudText Typo="Typo.h6">@L["FilterTitle"]</MudText>
+    </MudCardHeader>
+
+    <MudCardContent>
+        <MudGrid>
+            <MudItem xs="12" sm="6">
+
+                <!-- Date Range Picker -->
+                <MudDateRangePicker @bind-DateRange="_dateRange" Label="@L["DateRangeLabel"]" Color="Color.Primary"
+                    Disabled="@IsLoading" />
+            </MudItem>
+
+            <!-- Search Input with Debounce -->
+            <MudItem xs="12" sm="6">
+                <MudTextField @bind-Value="_searchText" Label="@L["SearchLabel"]" Placeholder="@L["SearchPlaceholder"]"
+                    Immediate="true" DebounceInterval="500" OnDebouncedValueChanged="HandleSearchChanged"
+                    Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium"
+                    Class="w-100" />
+            </MudItem>
+        </MudGrid>
+    </MudCardContent>
+</MudCard>
+
+@code {
+
+    [Parameter] public bool IsLoading { get; set; }
+    public BatchFilterModel Filter = new BatchFilterModel();
+    private DateRange _dateRangeInternal = new DateRange(DateTime.Now.AddDays(-7), DateTime.Now);
+    private DateRange _dateRange
+    {
+        get => _dateRangeInternal;
+        set
+        {
+            _dateRangeInternal = value;
+            _ = NotifyFilterChanged();
+        }
+    }
+
+
+    private string _searchTextInternal = string.Empty;
+    private string _searchText
+    {
+        get => _searchTextInternal;
+        set
+        {
+            _searchTextInternal = value;
+            _ = NotifyFilterChanged();
+        }
+    }
+
+    [Parameter] public EventCallback<BatchFilterModel> OnFilterChanged { get; set; }
+
+
+    private async Task NotifyFilterChanged()
+    {
+        Filter = new BatchFilterModel
+        {
+            StartDate = _dateRange?.Start,
+            EndDate = _dateRange?.End,
+            SearchText = _searchTextInternal?.Trim()
+        };
+
+        if (!string.IsNullOrWhiteSpace(Filter.SearchText) && Filter.SearchText.Length <= 2)
+            return; // Optional: prevent early triggers on small input
+
+        await OnFilterChanged.InvokeAsync(Filter);
+    }
+
+}

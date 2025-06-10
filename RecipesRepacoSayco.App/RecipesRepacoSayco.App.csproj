@@ -7,15 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.105.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.5">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="MudBlazor" Version="8.7.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\RecipesRepacoSayco.Core\RecipesRepacoSayco.Core.csproj" />
     <ProjectReference Include="..\RecipesRepacoSayco.Data\RecipesRepacoSayco.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources/" />
   </ItemGroup>
 
 </Project>
