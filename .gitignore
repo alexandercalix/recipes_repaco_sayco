@@ -1,8 +1,24 @@
-# Ignore build outputs
+# .NET build folders
 bin/
 obj/
+
+# Publish artifacts
 *.exe
 *.dll
 *.pdb
+
+# User-specific
 *.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code
+.vscode/
+
+# Rider
+.idea/
+
+# Others
+*.log
 *.vs/
