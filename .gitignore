@@ -1,0 +1,8 @@
+# Ignore build outputs
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.user
+*.vs/
