@@ -1,0 +1,16 @@
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Plc/bin/Debug/net8.0/RecipesRepacoSayco.Plc.deps.json
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Plc/bin/Debug/net8.0/RecipesRepacoSayco.Plc.dll
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Plc/bin/Debug/net8.0/RecipesRepacoSayco.Plc.pdb
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Plc/bin/Debug/net8.0/RecipesRepacoSayco.Core.dll
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Plc/bin/Debug/net8.0/RecipesRepacoSayco.Core.pdb
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Plc/obj/Debug/net8.0/RecipesRepacoSayco.Plc.csproj.AssemblyReference.cache
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Plc/obj/Debug/net8.0/RecipesRepacoSayco.Plc.GeneratedMSBuildEditorConfig.editorconfig
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Plc/obj/Debug/net8.0/RecipesRepacoSayco.Plc.AssemblyInfoInputs.cache
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Plc/obj/Debug/net8.0/RecipesRepacoSayco.Plc.AssemblyInfo.cs
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Plc/obj/Debug/net8.0/RecipesRepacoSayco.Plc.csproj.CoreCompileInputs.cache
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Plc/obj/Debug/net8.0/RecipesRepacoSayco.Plc.sourcelink.json
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Plc/obj/Debug/net8.0/RecipesR.EA1BB44C.Up2Date
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Plc/obj/Debug/net8.0/RecipesRepacoSayco.Plc.dll
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Plc/obj/Debug/net8.0/refint/RecipesRepacoSayco.Plc.dll
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Plc/obj/Debug/net8.0/RecipesRepacoSayco.Plc.pdb
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Plc/obj/Debug/net8.0/ref/RecipesRepacoSayco.Plc.dll

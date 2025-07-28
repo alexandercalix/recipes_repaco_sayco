@@ -8,5 +8,6 @@ public interface ITag
     string Datatype { get; }
     string Address { get; }
     bool Quality { get; }
+    int? Length { get; }
     object Value { get; set; }
 }

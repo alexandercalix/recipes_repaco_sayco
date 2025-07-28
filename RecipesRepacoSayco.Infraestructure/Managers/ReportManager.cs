@@ -81,7 +81,7 @@ public class ReportManager
             StartTime = now,
             EndTime = now,
             Batch = tags.GetInt(config.BatchTag),
-            RecipeName = tags.GetString(config.RecipeTag),
+            RecipeName = tags.GetString(config.RecipeTag).Trim(),
         };
 
         var setpoints = config.Setpoints.Select(tags.GetFloat).ToList(); // ahora es List<decimal?>

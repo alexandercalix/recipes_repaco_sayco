@@ -12,6 +12,7 @@ public class SiemensTag : ITag
     public string Datatype { get; init; } // Now immutable
     public string Address { get; init; }  // Now immutable
     public bool Quality { get; internal set; } // Quality is managed internally
+    public int? Length { get; init; } = 1;
 
     private object _value;
 
@@ -31,12 +32,13 @@ public class SiemensTag : ITag
 
     public DataItem Item { get; private set; }
 
-    public SiemensTag(string name, string datatype, string address, object value)
+    public SiemensTag(string name, string datatype, string address, object value, int? length = null)
     {
         Name = name;
         Datatype = ValidateDatatype(datatype);
         Address = address;
         _value = value;
+        Length = length;
 
         Build();
         Value = value; // triggers validation and sync
@@ -44,28 +46,39 @@ public class SiemensTag : ITag
 
     private void Build()
     {
+        int count = 1;
+
+        if (Datatype == "String")
+        {
+            count = Length ?? 128; // Default string length
+        }
+
+
         Item = new DataItem
         {
-            Count = 1,
+
             DataType = ParseAreaType(Address),
             VarType = ParseVarType(Datatype),
             DB = ParseDbNumber(Address),
             StartByteAdr = ParseByteOffset(Address),
             BitAdr = ParseBitOffset(Address),
+            Count = count,
             Value = _value
         };
+
 
         Console.WriteLine($"SiemensTag {Name} {Item.DataType} {Item.VarType} {Item.StartByteAdr}");
     }
 
     private static string ValidateDatatype(string datatype)
     {
-        string[] allowed = { "Bool", "Byte", "Word", "DWord", "Int", "DInt", "Real" };
+        string[] allowed = { "Bool", "Byte", "Word", "DWord", "Int", "DInt", "Real", "String" };
         if (!Array.Exists(allowed, d => d.Equals(datatype, StringComparison.OrdinalIgnoreCase)))
             throw new ArgumentException($"Unsupported Datatype: '{datatype}'");
 
         return datatype;
     }
+
 
     private bool IsCompatibleType(object value)
     {
@@ -80,6 +93,8 @@ public class SiemensTag : ITag
             "Int" => value is short,
             "DInt" => value is int,
             "Real" => value is float or double,
+            "String" => value is string,
+
             _ => false
         };
     }
@@ -109,6 +124,7 @@ public class SiemensTag : ITag
             "Int" => VarType.Int,
             "DInt" => VarType.DInt,
             "Real" => VarType.Real,
+            "String" => VarType.String,
             _ => throw new ArgumentException($"Unsupported VarType: {datatype}")
         };
         return tagtype;
@@ -116,29 +132,28 @@ public class SiemensTag : ITag
 
     private static int ParseDbNumber(string address)
     {
-        var match = Regex.Match(address, @"^DB(\d+)\.");
-        return match.Success ? int.Parse(match.Groups[1].Value) : 0;
+        var match = Regex.Match(address, @"DB(\d+)", RegexOptions.IgnoreCase);
+        if (match.Success && int.TryParse(match.Groups[1].Value, out int dbNumber))
+        {
+            return dbNumber;
+        }
+
+        throw new ArgumentException($"Invalid address format for DB number: {address}");
     }
 
     private static int ParseByteOffset(string address)
     {
-        // Ejemplos válidos: DB1.DBD2, DB1.DBX0.0, DB1.DBW4, M10.1, IW2, QW4
-        var dbMatch = Regex.Match(address, @"^DB(\d+)\.DB[XDW](\d+)");
-        if (dbMatch.Success)
+        // Para DBX, DBB, DBW, DBD
+        var match = Regex.Match(address, @"DB\d+\.DB[XBWD](\d+)(?:\.\d+)?", RegexOptions.IgnoreCase);
+        if (match.Success && int.TryParse(match.Groups[1].Value, out int byteAddr))
         {
-            var byteStr = dbMatch.Groups[2].Value;
-            return int.Parse(byteStr);
-        }
-
-        var areaMatch = Regex.Match(address, @"^[MIQ](B|W|D)?X?(\d+)(?:\.\d+)?$");
-        if (areaMatch.Success)
-        {
-            var byteStr = areaMatch.Groups[2].Value;
-            return int.Parse(byteStr);
+            Console.WriteLine($"Parsed byte offset: {byteAddr} from address: {address}");
+            return byteAddr;
         }
 
         throw new ArgumentException($"Invalid address format for byte offset: {address}");
     }
+
 
 
     private static byte ParseBitOffset(string address)

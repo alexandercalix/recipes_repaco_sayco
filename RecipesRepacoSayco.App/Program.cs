@@ -32,7 +32,13 @@ builder.Services.AddLocalization(options => options.ResourcesPath = "");
 
 // Register EF Core with SQL Server
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.EnableSensitiveDataLogging(false);
+    options.LogTo(_ => { }, LogLevel.Warning); // 👈 silencia todos los logs Info y Debug
+});
+
+
 
 var labels = builder.Configuration.GetSection("MaterialLabels").Get<string[]>();
 builder.Services.Configure<MaterialLabelOptions>(options =>

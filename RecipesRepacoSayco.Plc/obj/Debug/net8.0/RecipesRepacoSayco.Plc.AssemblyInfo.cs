@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RecipesRepacoSayco.Plc")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e823aba849a70ba3557bb4631d6106c66c95377")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b22dcba81352af272f5b879c1d11ab8f9de7807")]
 [assembly: System.Reflection.AssemblyProductAttribute("RecipesRepacoSayco.Plc")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RecipesRepacoSayco.Plc")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

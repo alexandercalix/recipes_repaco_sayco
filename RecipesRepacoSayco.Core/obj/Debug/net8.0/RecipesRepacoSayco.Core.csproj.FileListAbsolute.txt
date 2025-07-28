@@ -1,0 +1,12 @@
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Core/bin/Debug/net8.0/RecipesRepacoSayco.Core.deps.json
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Core/bin/Debug/net8.0/RecipesRepacoSayco.Core.dll
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Core/bin/Debug/net8.0/RecipesRepacoSayco.Core.pdb
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Core/obj/Debug/net8.0/RecipesRepacoSayco.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Core/obj/Debug/net8.0/RecipesRepacoSayco.Core.AssemblyInfoInputs.cache
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Core/obj/Debug/net8.0/RecipesRepacoSayco.Core.AssemblyInfo.cs
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Core/obj/Debug/net8.0/RecipesRepacoSayco.Core.csproj.CoreCompileInputs.cache
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Core/obj/Debug/net8.0/RecipesRepacoSayco.Core.sourcelink.json
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Core/obj/Debug/net8.0/RecipesRepacoSayco.Core.dll
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Core/obj/Debug/net8.0/refint/RecipesRepacoSayco.Core.dll
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Core/obj/Debug/net8.0/RecipesRepacoSayco.Core.pdb
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Core/obj/Debug/net8.0/ref/RecipesRepacoSayco.Core.dll

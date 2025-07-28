@@ -11,6 +11,7 @@ public class PlcTagDefinition
     public string Address { get; set; }       // Ej: "DB1.DBD2"
 
     public object DefaultValue { get; set; }  // Ej: 0, false, 0.0f, etc.
+    public int? Length { get; set; } = 1;
 
     public PlcTagDefinition() { }
 

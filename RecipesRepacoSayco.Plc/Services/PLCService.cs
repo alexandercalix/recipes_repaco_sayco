@@ -40,8 +40,14 @@ namespace RecipesRepacoSayco.Plc.Services
             _plcIp = config.IpAddress;
 
             _tags = config.Tags
-                .Select(t => new SiemensTag(t.Name, t.Datatype, t.Address, ConvertToPlcType(t.Datatype, t.DefaultValue)))
+                .Select(t => new SiemensTag(t.Name, t.Datatype, t.Address, ConvertToPlcType(t.Datatype, t.DefaultValue), t.Length))
                 .ToList();
+
+
+            foreach (var tag in _tags)
+            {
+                Console.WriteLine($"Tag: {tag.Name}, Type: {tag.Datatype}, Address: {tag.Address}, Default Value: {tag.Value} Lenght:  ({tag.Length})");
+            }
         }
 
         private object ConvertToPlcType(string datatype, object value)
@@ -55,6 +61,7 @@ namespace RecipesRepacoSayco.Plc.Services
                 "Int" => Convert.ToInt16(value),
                 "DInt" => Convert.ToInt32(value),
                 "Real" => Convert.ToSingle(value),
+                "String" => Convert.ToString(value) ?? "",
                 _ => throw new ArgumentException($"Unsupported datatype: {datatype}")
             };
         }
@@ -109,13 +116,30 @@ namespace RecipesRepacoSayco.Plc.Services
 
                     if (_client.IsConnected)
                     {
-                        var items = _tags.Select(t => t.Item).ToList();
+                        var items = _tags.Select(t => t.Item).Where(x => x.VarType != VarType.S7String).ToList();
 
-                        for (int i = 0; i < items.Count; i += 19)
+
+                        for (int i = 0; i < items.Count; i += 10)
                         {
-                            var batch = items.Skip(i).Take(19).ToList();
+
+                            var batch = items.Skip(i).Take(10).ToList();
                             await _client.ReadMultipleVarsAsync(batch);
                         }
+
+                        var strings = _tags
+                            .Where(t => t.Item.VarType == VarType.S7String)
+                            .Select(t => t.Item)
+                            .ToList();
+
+                        if (strings.Count > 0)
+                        {
+                            Console.Write("Readiing ===============");
+                            await _client.ReadMultipleVarsAsync(strings);
+                            Console.WriteLine(" value:" + strings[0].Value);
+                        }
+
+
+
 
                         LastReadTime = DateTime.Now;
                         LastError = string.Empty;
