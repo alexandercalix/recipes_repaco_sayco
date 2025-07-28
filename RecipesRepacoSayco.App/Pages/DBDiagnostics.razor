@@ -1,0 +1,41 @@
+﻿@page "/db-diagnostic"
+@using RecipesRepacoSayco.Data.Interfaces
+@inject IDatabaseDiagnostics DbDiag
+
+<MudPaper Class="pa-4 m-4">
+    <MudText Typo="Typo.h6">Database Diagnostics</MudText>
+    <MudDivider Class="my-2" />
+
+    <MudText Typo="Typo.subtitle2">Last @Logs.Count entries (last 24 hours)</MudText>
+
+    <MudTable Items="Logs" Dense="true" Hover="true">
+        <HeaderContent>
+            <MudTh>Timestamp</MudTh>
+            <MudTh>Source</MudTh>
+            <MudTh>Command</MudTh>
+            <MudTh>Status</MudTh>
+            <MudTh>Message</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>@context.Timestamp.ToLocalTime().ToString("HH:mm:ss")</MudTd>
+            <MudTd>@context.Source</MudTd>
+            <MudTd>@context.Command</MudTd>
+            <MudTd>
+                <MudChip T="string" Color="@(context.Success? Color.Success: Color.Error)" Label="true">
+                    @(context.Success ? "OK" : "FAIL")
+                </MudChip>
+
+            </MudTd>
+            <MudTd>@context.Message</MudTd>
+        </RowTemplate>
+    </MudTable>
+</MudPaper>
+
+@code {
+    private List<DatabaseLogEntry> Logs = new();
+
+    protected override void OnInitialized()
+    {
+        Logs = DbDiag.GetRecentLogs();
+    }
+}

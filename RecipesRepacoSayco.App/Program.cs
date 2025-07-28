@@ -16,6 +16,8 @@ using RecipesRepacoSayco.Infraestructure.Managers;
 using RecipesRepacoSayco.Infraestructure.Services;
 using RecipesRepacoSayco.Core.Models.Definitions;
 using RecipesRepacoSayco.Core.Models.Reports;
+using RecipesRepacoSayco.Data.Interfaces;
+using RecipesRepacoSayco.Data.Diagnostic;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,6 +40,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.LogTo(_ => { }, LogLevel.Warning); // 👈 silencia todos los logs Info y Debug
 });
 
+builder.Services.AddSingleton<IDatabaseDiagnostics, DatabaseDiagnostics>();
 
 
 var labels = builder.Configuration.GetSection("MaterialLabels").Get<string[]>();
