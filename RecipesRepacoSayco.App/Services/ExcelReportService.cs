@@ -29,10 +29,9 @@ public class ExcelReportService : IExcelReportService
             if (filter.StartDate == null || filter.EndDate == null)
                 throw new ArgumentException("Start and End dates are required.");
 
-            var batches = await batch.GetByDateAndTextAsync(
+            var batches = await batch.GetByDate(
                 (DateTime)filter.StartDate,
-                (DateTime)filter.EndDate,
-                filter.SearchText);
+                (DateTime)filter.EndDate);
 
             using var workbook = new XLWorkbook();
             var worksheet = workbook.Worksheets.Add("Report");
@@ -78,7 +77,7 @@ public class ExcelReportService : IExcelReportService
             {
                 col = 1;
                 worksheet.Cell(currentRow, col++).Value = rowNumber++;
-                worksheet.Cell(currentRow, col++).Value = batch.ProductName;
+                worksheet.Cell(currentRow, col++).Value = batch.Batch;
                 worksheet.Cell(currentRow, col++).Value = batch.StartTime;
                 worksheet.Cell(currentRow, col - 1).Style.DateFormat.Format = "dd/MM/yyyy HH:mm";
                 worksheet.Cell(currentRow, col++).Value = batch.EndTime;
@@ -120,5 +119,113 @@ public class ExcelReportService : IExcelReportService
             throw new InvalidOperationException("Invalid date range provided.", ex);
         }
     }
+
+    public byte[] Generate(List<BatchProcess> processes)
+    {
+        using var workbook = new XLWorkbook();
+        var worksheet = workbook.Worksheets.Add("Reporte");
+
+        // Título principal
+        worksheet.Cell("A1").Value = "Informe Batch por Nº Orden Producción";
+        worksheet.Range("A1:Q1").Merge().Style
+            .Font.SetBold()
+            .Font.SetFontSize(16)
+            .Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center)
+            .Alignment.SetVertical(XLAlignmentVerticalValues.Center);
+
+        // Fecha actual
+        worksheet.Cell("A3").Value = $"Fecha de generación: {DateTime.Now:dd-MM-yyyy HH:mm:ss}";
+        worksheet.Cell("A3").Style.Font.Italic = true;
+
+        // Encabezados
+        var headers = new[]
+        {
+        "Nº orden producción", "Fecha inicio", "Hora inicio",
+        "Fecha fin", "Hora final", "Nº lote", "Nombre receta",
+        "Kg bach teórico", "Kg bach real",
+        "Cantidad agua real", "Cantidad melaza real", "Cantidad vinaza real",
+        "Cantidad suero real", "Minerales adicionales" ,"Ventury"
+    };
+
+        for (int i = 0; i < headers.Length; i++)
+        {
+            var cell = worksheet.Cell(5, i + 1);
+            cell.Value = headers[i];
+            cell.Style
+                .Font.SetBold()
+                .Fill.SetBackgroundColor(XLColor.LightGray)
+                .Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center)
+                .Alignment.SetVertical(XLAlignmentVerticalValues.Center)
+                .Border.SetOutsideBorder(XLBorderStyleValues.Thin)
+                .Border.SetInsideBorder(XLBorderStyleValues.Thin);
+        }
+
+        // Datos
+        int row = 6;
+        foreach (var p in processes)
+        {
+            worksheet.Cell(row, 1).Value = p.Batch;
+            worksheet.Cell(row, 2).Value = p.StartTime.ToString("yyyy/MM/dd");
+            worksheet.Cell(row, 3).Value = p.StartTime.ToString("HH:mm:ss");
+            worksheet.Cell(row, 4).Value = p.EndTime?.ToString("yyyy/MM/dd");
+            worksheet.Cell(row, 5).Value = p.EndTime?.ToString("HH:mm:ss");
+            worksheet.Cell(row, 6).Value = p.Batch;
+            worksheet.Cell(row, 7).Value = p.RecipeName;
+            worksheet.Cell(row, 8).Value = p.Setpoint1 + p.Setpoint2 + p.Setpoint3 + p.Setpoint4 + p.Setpoint5 + p.Setpoint6;
+            worksheet.Cell(row, 9).Value = p.ActualValue1 + p.ActualValue2 + p.ActualValue3 + p.ActualValue4 + p.ActualValue5 + p.ActualValue6;
+            worksheet.Cell(row, 10).Value = p.ActualValue3;
+            worksheet.Cell(row, 11).Value = p.ActualValue1;
+            worksheet.Cell(row, 12).Value = p.ActualValue2;
+            worksheet.Cell(row, 13).Value = p.ActualValue4;
+            worksheet.Cell(row, 14).Value = p.ActualValue5;
+            worksheet.Cell(row, 15).Value = p.ActualValue6;
+
+            // Bordes a cada celda
+            for (int col = 1; col <= headers.Length; col++)
+            {
+                worksheet.Cell(row, col).Style
+                    .Border.SetOutsideBorder(XLBorderStyleValues.Thin)
+                    .Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
+            }
+
+            row++;
+        }
+
+        // Fila total
+        worksheet.Cell(row, 1).Value = "Total";
+        worksheet.Range(row, 1, row, 7).Merge();
+        worksheet.Range(row, 1, row, 7).Style
+            .Font.SetBold()
+            .Fill.SetBackgroundColor(XLColor.Gray)
+            .Alignment.SetHorizontal(XLAlignmentHorizontalValues.Left);
+
+        for (int col = 10; col <= 15; col++)
+        {
+            worksheet.Cell(row, col).FormulaA1 = $"SUM({worksheet.Cell(6, col).Address}:{worksheet.Cell(row - 1, col).Address})";
+            worksheet.Cell(row, col).Style
+                .Font.SetBold()
+                .Fill.SetBackgroundColor(XLColor.Gray)
+                .Border.SetOutsideBorder(XLBorderStyleValues.Thin)
+                .NumberFormat.SetFormat("#,##0.000");
+        }
+
+        int startRow = 6;
+        int endRow = startRow + processes.Count - 1;
+
+        worksheet.Cell($"H{endRow + 1}").SetFormulaA1($"SUM(H{startRow}:H{endRow})").Style.Fill.SetBackgroundColor(XLColor.LightGray).Border.SetOutsideBorder(XLBorderStyleValues.Thin);
+        worksheet.Cell($"I{endRow + 1}").SetFormulaA1($"SUM(I{startRow}:I{endRow})").Style.Fill.SetBackgroundColor(XLColor.LightGray).Border.SetOutsideBorder(XLBorderStyleValues.Thin);
+
+
+        // Ajustar columnas
+        worksheet.Columns().AdjustToContents();
+
+        using var stream = new MemoryStream();
+        workbook.SaveAs(stream);
+        return stream.ToArray();
+    }
+
+
+
+
 
 }

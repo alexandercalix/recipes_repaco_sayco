@@ -16,6 +16,12 @@
   <data name="ReportTitle" xml:space="preserve">
     <value>Reporte</value>
   </data>
+   <data name="Batch" xml:space="preserve">
+    <value>Lote</value>
+  </data>
+    <data name="Quantity" xml:space="preserve">
+    <value>Cantidad De Procesos</value>
+  </data>
   <data name="EmptyMessage" xml:space="preserve">
     <value>No hay procesos de lote disponibles.</value>
   </data>

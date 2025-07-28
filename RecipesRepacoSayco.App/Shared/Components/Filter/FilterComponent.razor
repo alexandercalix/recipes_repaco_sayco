@@ -15,13 +15,13 @@
                     Disabled="@IsLoading" />
             </MudItem>
 
-            <!-- Search Input with Debounce -->
+            @* <!-- Search Input with Debounce -->
             <MudItem xs="12" sm="6">
                 <MudTextField @bind-Value="_searchText" Label="@L["SearchLabel"]" Placeholder="@L["SearchPlaceholder"]"
                     Immediate="true" DebounceInterval="500" OnDebouncedValueChanged="HandleSearchChanged"
                     Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium"
                     Class="w-100" />
-            </MudItem>
+            </MudItem> *@
         </MudGrid>
     </MudCardContent>
 </MudCard>
@@ -30,7 +30,7 @@
 
     [Parameter] public bool IsLoading { get; set; }
     public BatchFilterModel Filter = new BatchFilterModel();
-    private DateRange _dateRangeInternal = new DateRange(DateTime.Now.AddDays(-7), DateTime.Now);
+    private DateRange _dateRangeInternal = new DateRange(DateTime.Now.AddDays(-1), DateTime.Now);
     private DateRange _dateRange
     {
         get => _dateRangeInternal;
@@ -54,6 +54,11 @@
     }
 
     [Parameter] public EventCallback<BatchFilterModel> OnFilterChanged { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await NotifyFilterChanged();
+    }
 
 
     private async Task NotifyFilterChanged()

@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Drivers/" />
-    <Folder Include="Managers/" />
   </ItemGroup>
 
   <ItemGroup>

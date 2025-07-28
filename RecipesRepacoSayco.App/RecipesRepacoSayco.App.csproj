@@ -16,12 +16,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="../RecipesRepacoSayco.Infraestructure/RecipesRepacoSayco.Infraestructure.csproj" />
+    <ProjectReference Include="../RecipesRepacoSayco.Plc/RecipesRepacoSayco.Plc.csproj" />
     <ProjectReference Include="..\RecipesRepacoSayco.Core\RecipesRepacoSayco.Core.csproj" />
     <ProjectReference Include="..\RecipesRepacoSayco.Data\RecipesRepacoSayco.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Resources/" />
+    <Folder Include="wwwroot/img/" />
   </ItemGroup>
 
 </Project>

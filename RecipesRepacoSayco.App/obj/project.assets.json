@@ -1238,6 +1238,19 @@
           }
         }
       },
+      "S7netplus/0.20.0": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/S7.Net.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/S7.Net.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "SixLabors.Fonts/1.0.0": {
         "type": "package",
         "compile": {
@@ -1905,6 +1918,35 @@
         },
         "runtime": {
           "bin/placeholder/RecipesRepacoSayco.Data.dll": {}
+        }
+      },
+      "RecipesRepacoSayco.Infraestructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "RecipesRepacoSayco.Core": "1.0.0",
+          "RecipesRepacoSayco.Data": "1.0.0",
+          "RecipesRepacoSayco.Plc": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RecipesRepacoSayco.Infraestructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RecipesRepacoSayco.Infraestructure.dll": {}
+        }
+      },
+      "RecipesRepacoSayco.Plc/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "RecipesRepacoSayco.Core": "1.0.0",
+          "S7netplus": "0.20.0"
+        },
+        "compile": {
+          "bin/placeholder/RecipesRepacoSayco.Plc.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RecipesRepacoSayco.Plc.dll": {}
         }
       }
     }
@@ -4121,6 +4163,31 @@
         "readme.md"
       ]
     },
+    "S7netplus/0.20.0": {
+      "sha512": "XAubZ076bhWHQZlnBkzwQO4WxqF5ofwhrkDxfBhGbeD1JC1jBDn3EbWIqMLW6+G0RsxzxirSjLERCQZPfjwGdw==",
+      "type": "package",
+      "path": "s7netplus/0.20.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/S7.Net.dll",
+        "lib/net452/S7.Net.xml",
+        "lib/net462/S7.Net.dll",
+        "lib/net462/S7.Net.xml",
+        "lib/net5.0/S7.Net.dll",
+        "lib/net5.0/S7.Net.xml",
+        "lib/net6.0/S7.Net.dll",
+        "lib/net6.0/S7.Net.xml",
+        "lib/net7.0/S7.Net.dll",
+        "lib/net7.0/S7.Net.xml",
+        "lib/netstandard1.3/S7.Net.dll",
+        "lib/netstandard1.3/S7.Net.xml",
+        "lib/netstandard2.0/S7.Net.dll",
+        "lib/netstandard2.0/S7.Net.xml",
+        "s7netplus.0.20.0.nupkg.sha512",
+        "s7netplus.nuspec"
+      ]
+    },
     "SixLabors.Fonts/1.0.0": {
       "sha512": "LFQsCZlV0xlUyXAOMUo5kkSl+8zAQXXbbdwWchtk0B4o7zotZhQsQOcJUELGHdfPfm/xDAsz6hONAuV25bJaAg==",
       "type": "package",
@@ -5371,6 +5438,16 @@
       "type": "project",
       "path": "../RecipesRepacoSayco.Data/RecipesRepacoSayco.Data.csproj",
       "msbuildProject": "../RecipesRepacoSayco.Data/RecipesRepacoSayco.Data.csproj"
+    },
+    "RecipesRepacoSayco.Infraestructure/1.0.0": {
+      "type": "project",
+      "path": "../RecipesRepacoSayco.Infraestructure/RecipesRepacoSayco.Infraestructure.csproj",
+      "msbuildProject": "../RecipesRepacoSayco.Infraestructure/RecipesRepacoSayco.Infraestructure.csproj"
+    },
+    "RecipesRepacoSayco.Plc/1.0.0": {
+      "type": "project",
+      "path": "../RecipesRepacoSayco.Plc/RecipesRepacoSayco.Plc.csproj",
+      "msbuildProject": "../RecipesRepacoSayco.Plc/RecipesRepacoSayco.Plc.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5379,7 +5456,9 @@
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.5",
       "MudBlazor >= 8.7.0",
       "RecipesRepacoSayco.Core >= 1.0.0",
-      "RecipesRepacoSayco.Data >= 1.0.0"
+      "RecipesRepacoSayco.Data >= 1.0.0",
+      "RecipesRepacoSayco.Infraestructure >= 1.0.0",
+      "RecipesRepacoSayco.Plc >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5413,6 +5492,12 @@
             },
             "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Data/RecipesRepacoSayco.Data.csproj": {
               "projectPath": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Data/RecipesRepacoSayco.Data.csproj"
+            },
+            "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Infraestructure/RecipesRepacoSayco.Infraestructure.csproj": {
+              "projectPath": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Infraestructure/RecipesRepacoSayco.Infraestructure.csproj"
+            },
+            "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Plc/RecipesRepacoSayco.Plc.csproj": {
+              "projectPath": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Plc/RecipesRepacoSayco.Plc.csproj"
             }
           }
         }

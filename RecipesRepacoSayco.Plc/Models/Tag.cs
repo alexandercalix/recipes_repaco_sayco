@@ -1,15 +1,18 @@
 using System;
 using System.Text.RegularExpressions;
+using RecipesRepacoSayco.Core.Models;
 using S7.Net;
 using S7.Net.Types;
 
 namespace RecipesRepacoSayco.Plc.Models;
 
-public class Tag
+public class SiemensTag : ITag
 {
     public string Name { get; set; }
-    public string Datatype { get; set; } // Ej: Bool, Real, Int
-    public string Address { get; set; }  // Ej: DB10.DBX0.0, M0.0, IW2, QW4
+    public string Datatype { get; init; } // Now immutable
+    public string Address { get; init; }  // Now immutable
+    public bool Quality { get; internal set; } // Quality is managed internally
+
     private object _value;
 
     public object Value
@@ -17,28 +20,26 @@ public class Tag
         get => Item?.Value ?? _value;
         set
         {
-            if (IsCompatibleType(value))
-            {
-                _value = value;
-                if (Item != null)
-                    Item.Value = value;
-            }
-            else
-            {
+            if (!IsCompatibleType(value))
                 throw new InvalidCastException($"Value type '{value?.GetType().Name}' is not compatible with PLC type '{Datatype}'.");
-            }
+
+            _value = value;
+            if (Item != null)
+                Item.Value = value;
         }
     }
-    public DataItem Item;
 
-    public Tag(string name, string datatype, string address, object value)
+    public DataItem Item { get; private set; }
+
+    public SiemensTag(string name, string datatype, string address, object value)
     {
         Name = name;
-        Datatype = datatype;
+        Datatype = ValidateDatatype(datatype);
         Address = address;
         _value = value;
+
         Build();
-        Value = value; // aplica validación y sincroniza con DataItem
+        Value = value; // triggers validation and sync
     }
 
     private void Build()
@@ -53,6 +54,17 @@ public class Tag
             BitAdr = ParseBitOffset(Address),
             Value = _value
         };
+
+        Console.WriteLine($"SiemensTag {Name} {Item.DataType} {Item.VarType} {Item.StartByteAdr}");
+    }
+
+    private static string ValidateDatatype(string datatype)
+    {
+        string[] allowed = { "Bool", "Byte", "Word", "DWord", "Int", "DInt", "Real" };
+        if (!Array.Exists(allowed, d => d.Equals(datatype, StringComparison.OrdinalIgnoreCase)))
+            throw new ArgumentException($"Unsupported Datatype: '{datatype}'");
+
+        return datatype;
     }
 
     private bool IsCompatibleType(object value)
@@ -88,7 +100,7 @@ public class Tag
 
     private static VarType ParseVarType(string datatype)
     {
-        return datatype switch
+        var tagtype = datatype switch
         {
             "Bool" => VarType.Bit,
             "Byte" => VarType.Byte,
@@ -99,6 +111,7 @@ public class Tag
             "Real" => VarType.Real,
             _ => throw new ArgumentException($"Unsupported VarType: {datatype}")
         };
+        return tagtype;
     }
 
     private static int ParseDbNumber(string address)
@@ -109,12 +122,24 @@ public class Tag
 
     private static int ParseByteOffset(string address)
     {
-        var match = Regex.Match(address, @"(?:DB\d+\.)?[DMIQ](B|W|D)?X?(\d+)(?:\.\d+)?");
-        if (match.Success && int.TryParse(match.Groups[2].Value, out int byteAddr))
-            return byteAddr;
+        // Ejemplos válidos: DB1.DBD2, DB1.DBX0.0, DB1.DBW4, M10.1, IW2, QW4
+        var dbMatch = Regex.Match(address, @"^DB(\d+)\.DB[XDW](\d+)");
+        if (dbMatch.Success)
+        {
+            var byteStr = dbMatch.Groups[2].Value;
+            return int.Parse(byteStr);
+        }
+
+        var areaMatch = Regex.Match(address, @"^[MIQ](B|W|D)?X?(\d+)(?:\.\d+)?$");
+        if (areaMatch.Success)
+        {
+            var byteStr = areaMatch.Groups[2].Value;
+            return int.Parse(byteStr);
+        }
 
         throw new ArgumentException($"Invalid address format for byte offset: {address}");
     }
+
 
     private static byte ParseBitOffset(string address)
     {

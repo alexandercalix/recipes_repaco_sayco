@@ -7,8 +7,9 @@ public interface IBatchProcessRepository
 {
     Task<BatchProcess> CreateAsync(BatchProcess batch);
     Task<BatchProcess?> GetByIdAsync(int id);
-    Task<List<BatchProcess>> GetByDateAndTextAsync(DateTime start, DateTime end, string? name);
-
+    Task<IEnumerable<BatchProcess>> GetByDate(DateTime start, DateTime end, int? searchBatch = null);
+    Task<BatchProcess?> GetLastOpenBatchAsync();
+    Task<List<BatchProcess>> GetByBatch(int batch);
     Task UpdateAsync(BatchProcess batch);
     Task DeleteAsync(int id);
 }

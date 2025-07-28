@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Mg6OoXfaypE=",
+  "dgSpecHash": "4OI7FAdFtu0=",
   "success": true,
   "projectFilePath": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/RecipesRepacoSayco.App.csproj",
   "expectedPackageFiles": [
@@ -65,6 +65,7 @@
     "/Users/oscarcalix/.nuget/packages/mono.texttemplating/3.0.0/mono.texttemplating.3.0.0.nupkg.sha512",
     "/Users/oscarcalix/.nuget/packages/mudblazor/8.7.0/mudblazor.8.7.0.nupkg.sha512",
     "/Users/oscarcalix/.nuget/packages/rbush.signed/4.0.0/rbush.signed.4.0.0.nupkg.sha512",
+    "/Users/oscarcalix/.nuget/packages/s7netplus/0.20.0/s7netplus.0.20.0.nupkg.sha512",
     "/Users/oscarcalix/.nuget/packages/sixlabors.fonts/1.0.0/sixlabors.fonts.1.0.0.nupkg.sha512",
     "/Users/oscarcalix/.nuget/packages/system.clientmodel/1.0.0/system.clientmodel.1.0.0.nupkg.sha512",
     "/Users/oscarcalix/.nuget/packages/system.codedom/6.0.0/system.codedom.6.0.0.nupkg.sha512",
@@ -101,9 +102,9 @@
     "/Users/oscarcalix/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512",
     "/Users/oscarcalix/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "/Users/oscarcalix/.nuget/packages/system.windows.extensions/6.0.0/system.windows.extensions.6.0.0.nupkg.sha512",
+    "/Users/oscarcalix/.nuget/packages/microsoft.netcore.app.ref/8.0.13/microsoft.netcore.app.ref.8.0.13.nupkg.sha512",
     "/Users/oscarcalix/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.13/microsoft.aspnetcore.app.ref.8.0.13.nupkg.sha512",
-    "/Users/oscarcalix/.nuget/packages/microsoft.netcore.app.host.osx-arm64/8.0.13/microsoft.netcore.app.host.osx-arm64.8.0.13.nupkg.sha512",
-    "/Users/oscarcalix/.nuget/packages/microsoft.netcore.app.ref/8.0.13/microsoft.netcore.app.ref.8.0.13.nupkg.sha512"
+    "/Users/oscarcalix/.nuget/packages/microsoft.netcore.app.host.osx-arm64/8.0.13/microsoft.netcore.app.host.osx-arm64.8.0.13.nupkg.sha512"
   ],
   "logs": []
 }

@@ -9,6 +9,13 @@ using RecipesRepacoSayco.Data.Repositories;
 using Microsoft.Extensions.Options;
 using RecipesRepacoSayco.App.Services;
 using RecipesRepacoSayco.Core.Services;
+using RecipesRepacoSayco.App.Hubs;
+using RecipesRepacoSayco.Core.Models;
+using RecipesRepacoSayco.Plc.Managers;
+using RecipesRepacoSayco.Infraestructure.Managers;
+using RecipesRepacoSayco.Infraestructure.Services;
+using RecipesRepacoSayco.Core.Models.Definitions;
+using RecipesRepacoSayco.Core.Models.Reports;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +25,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddControllers();
 builder.Services.AddMudServices();
 builder.Services.AddHttpClient();
+builder.Services.AddSignalR();
 
 
 builder.Services.AddLocalization(options => options.ResourcesPath = "");
@@ -40,9 +48,33 @@ builder.Services.AddSingleton<PlcStatusService>(new PlcStatusService());
 builder.Services.AddScoped<IBatchProcessRepository, BatchProcessRepository>();
 builder.Services.AddScoped<IExcelReportService, ExcelReportService>();
 
+builder.Services.AddSingleton<ITagNotifier, SignalRTagNotifier>(); // O NullTagNotifier si no usás SignalR
+
+builder.Services.AddSingleton<PlcManager>(sp =>
+{
+    var notifier = sp.GetRequiredService<ITagNotifier>();
+    var plcDefinitions = builder.Configuration
+.GetSection("PlcConnections")
+.Get<IEnumerable<PlcConnectionDefinition>>();
+
+    var manager = new PlcManager(notifier, plcDefinitions);
+    manager.InitializePlcs(); // crea e instancia los PLCs
+    return manager;
+});
+
+Console.WriteLine("Creating ReportManager ======================================");
+builder.Services.Configure<ReportMappingConfig>(
+    builder.Configuration.GetSection("ReportMapping"));
+
+builder.Services.AddSingleton(sp =>
+    sp.GetRequiredService<IOptions<ReportMappingConfig>>().Value);
+
+
+builder.Services.AddScoped<ReportManager>();
+builder.Services.AddSingleton<ReportRunner>();
 
 var app = builder.Build();
-
+_ = app.Services.GetRequiredService<ReportRunner>();
 
 
 // Configure the HTTP request pipeline.
@@ -62,6 +94,8 @@ app.UseRouting();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 app.MapControllers();
+app.MapHub<PlcHub>("/plcHub");
+
 
 var supportedCultures = new[] { "en-US", "es-ES" };
 var localizationOptions = new RequestLocalizationOptions()

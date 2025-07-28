@@ -15,18 +15,44 @@
 <MudThemeProvider />
 
 <MudLayout>
-    <MudAppBar Elevation="1">
+    <MudAppBar Color="Color.Primary" Style="background-color: #003366;">
+
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start"
             OnClick="@((e) => DrawerToggle())" />
         <MudSpacer />
         <LanguageSelector />
     </MudAppBar>
-    <MudDrawer @bind-Open="_drawerOpen" Elevation="2">
-        <MudDrawerHeader>
-            <MudText Typo="Typo.h5" Class="mt-1">Application</MudText>
-        </MudDrawerHeader>
-        @*NavMenu*@
+    <MudDrawer @bind-Open="_drawerOpen" Elevation="2" ClipMode="DrawerClipMode.Always"
+        Class="d-flex flex-column justify-between" Style="height: 100vh;">
+
+        <!-- 🔼 Header con logo de cliente -->
+        <div>
+            <MudDrawerHeader Class="d-flex justify-center py-3">
+                <img src="img/client.jpeg" alt="Client Logo" style="max-height: 70px;" />
+            </MudDrawerHeader>
+
+            <MudNavMenu>
+                <MudNavLink Href="/" Icon="@Icons.Material.Filled.Home" Match="NavLinkMatch.All">
+                    Home
+                </MudNavLink>
+                <MudNavLink Href="/plc-status" Icon="@Icons.Material.Filled.Monitor" Match="NavLinkMatch.Prefix">
+                    PLC Dashboard
+                </MudNavLink>
+            </MudNavMenu>
+        </div>
+
+        <!-- 🔽 Footer fijo al fondo -->
+        <div class="text-center p-3">
+            <img src="img/sayco.jpeg" alt="Dev Logo" style="max-height: 100px;" />
+            <div style="font-size: 0.75rem; margin-top: 4px;">
+                © Sayco Automation 2025
+            </div>
+        </div>
+
     </MudDrawer>
+
+
+
     <MudMainContent>
 
 

@@ -1,0 +1,8 @@
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/bin/Release/net8.0/win-x64/publish/appsettings.Development.json
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/bin/Release/net8.0/win-x64/publish/appsettings.json
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/bin/Release/net8.0/win-x64/publish/RecipesRepacoSayco.App.pdb
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/bin/Release/net8.0/win-x64/publish/RecipesRepacoSayco.Infraestructure.pdb
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/bin/Release/net8.0/win-x64/publish/RecipesRepacoSayco.Plc.pdb
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/bin/Release/net8.0/win-x64/publish/RecipesRepacoSayco.Core.pdb
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/bin/Release/net8.0/win-x64/publish/RecipesRepacoSayco.Data.pdb
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.App/bin/Release/net8.0/win-x64/publish/RecipesRepacoSayco.App.exe

@@ -1,0 +1,88 @@
+﻿@page "/plc-status"
+@inject PlcManager PlcManager
+@using RecipesRepacoSayco.Core.Services
+@using RecipesRepacoSayco.Core.Models
+@using RecipesRepacoSayco.Plc.Managers
+@implements IDisposable
+<MudPaper Class="p-4">
+    <MudText Typo="Typo.h5">PLC Status Dashboard</MudText>
+
+    <MudDivider Class="my-2" />
+
+    @foreach (var plc in PlcManager.GetPlcs())
+    {
+        <MudCard Class="mb-4">
+            <MudCardHeader>
+                <MudText Typo="Typo.h6">@plc.Name</MudText>
+                <MudChip T="string" Color="@(plc.IsConnected? Color.Success: Color.Error)" Class="ml-2">
+                    @(plc.IsConnected ? "Connected" : "Disconnected")
+                </MudChip>
+                <MudChip T="string" Color="@(plc.IsRunning? Color.Info: Color.Default)" Class="ml-2">
+                    @(plc.IsRunning ? "Running" : "Stopped")
+                </MudChip>
+                <MudText Typo="Typo.caption">
+                    Last read: @plc.LastReadTime.ToString("HH:mm:ss") |
+                    Status: @(plc.HasRecentReadFailure ? "❌ No response" : "✅ OK")
+                </MudText>
+
+                @if (!string.IsNullOrWhiteSpace(plc.LastError))
+                {
+                    <MudAlert Severity="Severity.Error">@plc.LastError</MudAlert>
+                }
+
+
+            </MudCardHeader>
+
+            <MudCardContent>
+                <MudTable Items="@(plc.Tags)" T="ITag" Hover="true" Dense="true">
+                    <HeaderContent>
+                        <MudTh>Name</MudTh>
+                        <MudTh>Address</MudTh>
+                        <MudTh>Datatype</MudTh>
+                        <MudTh>Value</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd DataLabel="Name">@context.Name</MudTd>
+                        <MudTd DataLabel="Address">@context.Address</MudTd>
+                        <MudTd DataLabel="Datatype">@context.Datatype</MudTd>
+                        <MudTd DataLabel="Value">@context.Value</MudTd>
+                    </RowTemplate>
+                </MudTable>
+
+            </MudCardContent>
+        </MudCard>
+    }
+</MudPaper>
+
+@code {
+    private PeriodicTimer _timer;
+    private CancellationTokenSource _cts = new();
+
+    protected override void OnInitialized()
+    {
+        _timer = new PeriodicTimer(TimeSpan.FromSeconds(1));
+        _ = UpdateLoop();
+    }
+
+    private async Task UpdateLoop()
+    {
+        try
+        {
+            while (await _timer.WaitForNextTickAsync(_cts.Token))
+            {
+                InvokeAsync(StateHasChanged);
+            }
+        }
+        catch (OperationCanceledException)
+        {
+            // Timer was cancelled (on dispose)
+        }
+    }
+
+    public void Dispose()
+    {
+        _cts.Cancel();
+        _cts.Dispose();
+        _timer?.Dispose();
+    }
+}

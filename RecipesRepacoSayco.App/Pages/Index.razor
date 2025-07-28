@@ -13,7 +13,7 @@
 
 <MudContainer Fixed="false" Class="mt-4 px-2">
     <RecipesRepacoSayco.App.Shared.Components.ReportGrid.ReportGridComponent IsLoading="IsLoading"
-        FilteredBatches="FilteredBatches" Filter="FilterComponent.Filter" />
+        FilteredBatches="FilteredBatches" Filter="FilterComponent.Filter" GroupedBatches="GroupedBatches" />
 </MudContainer>
 
 @code {
@@ -23,17 +23,40 @@
 
     IEnumerable<BatchProcess> FilteredBatches { get; set; }
 
+        private Dictionary<int, List<BatchProcess>> GroupedBatches { get; set; } = new();
+
+
     private async Task ApplyFilter(BatchFilterModel filter)
     {
         IsLoading = true;
-
+    Console.WriteLine("Applying filter... StartDate: {0}, EndDate: {1}, SearchText: {2}", 
+            filter.StartDate, filter.EndDate, filter.SearchText);
         try
         {
-            var results = await _repo.GetByDateAndTextAsync(
-            filter.StartDate ?? DateTime.MinValue,
-            filter.EndDate ?? DateTime.MaxValue,
-            filter.SearchText
-            );
+            Console.WriteLine($"Applying filter: StartDate={filter.StartDate}, EndDate={filter.EndDate}, SearchBatch={filter.SearchText}");
+
+int? batch = string.IsNullOrWhiteSpace(filter.SearchText)
+    ? null
+    : Convert.ToInt32(filter.SearchText);
+
+var results = await _repo.GetByDate(
+    filter.StartDate ?? DateTime.MinValue,
+    filter.EndDate ?? DateTime.MaxValue,
+    batch
+);
+
+
+
+            Console.WriteLine($"Filtered results count: {results.Count()}");
+
+            // Agrupar por batch (como string)
+        FilteredBatches = results;
+
+GroupedBatches = FilteredBatches
+    .GroupBy(p => p.Batch)
+    .ToDictionary(g => g.Key, g => g.ToList());
+
+
 
             FilteredBatches = results;
 
@@ -56,6 +79,14 @@
     {
         IsLoading = isLoading;
         StateHasChanged(); // Notify the component to re-render
+    }
+
+   private Dictionary<int, List<BatchProcess>> GroupedByBatch(IEnumerable<BatchProcess> processes)
+    {
+        return processes
+            .Where(p => p.Batch > 0) // solo incluye batches válidos
+            .GroupBy(p => p.Batch)
+            .ToDictionary(g => g.Key, g => g.ToList());
     }
 
 

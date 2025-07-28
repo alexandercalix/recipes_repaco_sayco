@@ -42,12 +42,22 @@ namespace RecipesRepacoSayco.Data.Migrations
                     b.Property<float?>("ActualValue4")
                         .HasColumnType("real");
 
+                    b.Property<float?>("ActualValue5")
+                        .HasColumnType("real");
+
+                    b.Property<float?>("ActualValue6")
+                        .HasColumnType("real");
+
+                    b.Property<int>("Batch")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("EndTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("ProductName")
+                    b.Property<string>("RecipeName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<float?>("Setpoint1")
                         .HasColumnType("real");
@@ -59,6 +69,12 @@ namespace RecipesRepacoSayco.Data.Migrations
                         .HasColumnType("real");
 
                     b.Property<float?>("Setpoint4")
+                        .HasColumnType("real");
+
+                    b.Property<float?>("Setpoint5")
+                        .HasColumnType("real");
+
+                    b.Property<float?>("Setpoint6")
                         .HasColumnType("real");
 
                     b.Property<DateTime>("StartTime")

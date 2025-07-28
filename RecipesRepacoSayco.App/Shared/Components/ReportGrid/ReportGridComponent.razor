@@ -17,62 +17,71 @@ else
     <MudCard Elevation="5">
         <MudCardHeader>
             <MudCardContent Class="w-100 d-flex align-center justify-between">
-                <MudText Typo="Typo.h5">@L["ReportTitle"]</MudText>
-                <MudIconButton Icon="@Icons.Material.Filled.ImportExport" Color="Color.Success" Class="ml-auto"
-                    OnClick="GenerateExcel" />
+                <MudText Typo="Typo.h5" Class="font-weight-bold pl-2">📊 @L["ReportTitle"]</MudText>
+
+
             </MudCardContent>
         </MudCardHeader>
+
         <MudCardContent Class="p-0">
+            <MudTable Items="@GroupedBatches.Keys" Hover="true" Bordered="true" Dense="true" Elevation="0"
+                Class=" mb-2 mud-elevation-2 rounded" Style="background-color: #f9f9f9;">
 
-            <MudTable Items="@FilteredBatches" Dense="true" Hover="true" Bordered="true" Elevation="0" Loading="@IsLoading"
-                Class="mb-4">
-                <HeaderContent>
-                    <MudTh>@L["Product"]</MudTh>
-                    <MudTh>@L["Start"]</MudTh>
-                    <MudTh>@L["End"]</MudTh>
-                    @foreach (var label in MaterialOptions.Value.MaterialLabels)
-                    {
-                        <MudTh>@label</MudTh>
 
-                    }
-                </HeaderContent>
                 <RowTemplate>
-                    <MudTd>@context.ProductName</MudTd>
-                    <MudTd>@context.StartTime.ToString("yyyy-MM-dd HH:mm")</MudTd>
-                    <MudTd>@context.EndTime?.ToString("yyyy-MM-dd HH:mm")</MudTd>
-                    <MudTd>
-                        <div style="line-height: 1.2;">
-                            <div>@L["Teoric"] @context.Setpoint1</div>
-                            <div>@L["Real"] @context.ActualValue1</div>
-                        </div>
-                    </MudTd>
-                    <MudTd>
-                        <div style="line-height: 1.2;">
-                            <div>@L["Teoric"] @context.Setpoint2</div>
-                            <div>@L["Real"] @context.ActualValue2</div>
-                        </div>
-                    </MudTd>
-                    <MudTd>
-                        <div style="line-height: 1.2;">
-                            <div>@L["Teoric"] @context.Setpoint3</div>
-                            <div>@L["Real"] @context.ActualValue3</div>
-                        </div>
-                    </MudTd>
-                    <MudTd>
-                        <div style="line-height: 1.2;">
-                            <div>@L["Teoric"] @context.Setpoint4</div>
-                            <div>@L["Real"] @context.ActualValue4</div>
+                    <MudTd ColSpan="3">
+                        <div class="d-flex justify-between align-center w-100">
+                            <MudText Typo="Typo.h6">
+                                Batch: @context (@GroupedBatches[context].Count @L["Quantity"])
+                            </MudText>
+                            <MudButton Class="ml-4" Variant="Variant.Outlined" Color="Color.Success" Size="Size.Small"
+                                OnClick="@(() => GenerateExcel(context))">
+                                @L["Export"]
+                            </MudButton>
                         </div>
                     </MudTd>
                 </RowTemplate>
+
+
+                <ChildRowContent>
+                    <MudTable Items="GroupedBatches[context]" Dense="true" Hover="true" Elevation="0" Bordered="true"
+                        Class="ml-4 mb-2">
+                        <HeaderContent>
+                            <MudTh>@L["Product"]</MudTh>
+                            <MudTh>@L["Start"]</MudTh>
+                            <MudTh>@L["End"]</MudTh>
+                            @foreach (var label in MaterialOptions.Value.MaterialLabels)
+                            {
+                                <MudTh>@label</MudTh>
+                            }
+                        </HeaderContent>
+
+                        <RowTemplate Context="item">
+                            <MudTd>@item.Batch</MudTd>
+                            <MudTd>@item.StartTime.ToString("yyyy-MM-dd HH:mm")</MudTd>
+                            <MudTd>@item.EndTime?.ToString("yyyy-MM-dd HH:mm")</MudTd>
+
+                            @for (int i = 1; i <= MaterialOptions.Value.MaterialLabels.Count; i++)
+                            {
+                                var spProp = typeof(BatchProcess).GetProperty($"Setpoint{i}");
+                                var pvProp = typeof(BatchProcess).GetProperty($"ActualValue{i}");
+                                var spVal = spProp?.GetValue(item)?.ToString();
+                                var pvVal = pvProp?.GetValue(item)?.ToString();
+
+                                <MudTd>
+                                    <div style="line-height: 1.2;">
+                                        <div>@L["Teoric"] @spVal</div>
+                                        <div>@L["Real"] @pvVal</div>
+                                    </div>
+                                </MudTd>
+                            }
+                        </RowTemplate>
+                    </MudTable>
+                </ChildRowContent>
             </MudTable>
         </MudCardContent>
-        <MudCardActions>
-            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => { /* Add export logic here */ })">
-                @L["Export"]
-            </MudButton>
-        </MudCardActions>
     </MudCard>
+
 
 
 }
@@ -82,24 +91,28 @@ else
     [Parameter] public bool IsLoading { get; set; } = false;
     [Parameter] public IEnumerable<BatchProcess> FilteredBatches { get; set; } = new List<BatchProcess>();
 
-    private async Task GenerateExcel()
+    [Parameter]
+    public Dictionary<int, List<BatchProcess>> GroupedBatches { get; set; }
+
+
+    private HashSet<int> _expanded = new();
+
+    private async Task GenerateExcel(int productionOrder)
     {
-        var filter = Filter;
-
-        if (filter != null && filter.StartDate.HasValue && filter.EndDate.HasValue)
-        {
-            var baseUri = NavManager.BaseUri;
-            var url = $"{baseUri}api/excel/export?startDate={filter.StartDate:O}&endDate={filter.EndDate:O}";
-
-            if (!string.IsNullOrWhiteSpace(filter.SearchText))
-                url += $"&searchText={Uri.EscapeDataString(filter.SearchText)}";
-
-            await JS.InvokeVoidAsync("window.open", url, "_blank");
-        }
-        else
-        {
-            Console.WriteLine("Missing date range");
-        }
+        var url = $"{NavManager.BaseUri}api/report/export?batch={productionOrder}";
+        await JS.InvokeVoidAsync("window.open", url, "_blank");
     }
+
+
+
+
+    private void ToggleExpanded(int batchKey)
+    {
+        if (_expanded.Contains(batchKey))
+            _expanded.Remove(batchKey);
+        else
+            _expanded.Add(batchKey);
+    }
+
 
 }

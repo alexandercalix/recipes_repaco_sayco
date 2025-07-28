@@ -1,0 +1,15 @@
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Data/bin/Release/net8.0/RecipesRepacoSayco.Data.deps.json
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Data/bin/Release/net8.0/RecipesRepacoSayco.Data.runtimeconfig.json
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Data/bin/Release/net8.0/RecipesRepacoSayco.Data.dll
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Data/bin/Release/net8.0/RecipesRepacoSayco.Data.pdb
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Data/obj/Release/net8.0/RecipesRepacoSayco.Data.csproj.AssemblyReference.cache
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Data/obj/Release/net8.0/RecipesRepacoSayco.Data.GeneratedMSBuildEditorConfig.editorconfig
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Data/obj/Release/net8.0/RecipesRepacoSayco.Data.AssemblyInfoInputs.cache
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Data/obj/Release/net8.0/RecipesRepacoSayco.Data.AssemblyInfo.cs
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Data/obj/Release/net8.0/RecipesRepacoSayco.Data.csproj.CoreCompileInputs.cache
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Data/obj/Release/net8.0/RecipesRepacoSayco.Data.sourcelink.json
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Data/obj/Release/net8.0/RecipesRepacoSayco.Data.dll
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Data/obj/Release/net8.0/refint/RecipesRepacoSayco.Data.dll
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Data/obj/Release/net8.0/RecipesRepacoSayco.Data.pdb
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Data/obj/Release/net8.0/RecipesRepacoSayco.Data.genruntimeconfig.cache
+/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Data/obj/Release/net8.0/ref/RecipesRepacoSayco.Data.dll

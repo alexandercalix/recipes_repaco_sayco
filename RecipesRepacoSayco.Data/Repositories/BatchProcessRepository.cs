@@ -16,29 +16,61 @@ public class BatchProcessRepository : IBatchProcessRepository
 
     public async Task<BatchProcess> CreateAsync(BatchProcess batch)
     {
-        _context.BatchProcesses.Add(batch);
-        await _context.SaveChangesAsync();
-        return batch;
+        try
+        {
+            _context.BatchProcesses.Add(batch);
+            await _context.SaveChangesAsync();
+            return batch;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"❌ Error saving batch process: {ex.Message}");
+            throw;
+        }
     }
 
     public async Task<BatchProcess?> GetByIdAsync(int id)
     {
-        return await _context.BatchProcesses.FindAsync(id);
+        var data = await _context.BatchProcesses.FindAsync(id);
+        if (data is null)
+        {
+            Console.WriteLine($"⚠️ Batch process with ID {id} not found.");
+            return null;
+        }
+        Console.WriteLine($"✅ Batch process with ID {id} retrieved successfully.");
+        return data;
     }
 
-    public async Task<List<BatchProcess>> GetByDateAndTextAsync(DateTime start, DateTime end, string? name)
+    public async Task<BatchProcess?> GetLastOpenBatchAsync()
+    {
+        return await _context.BatchProcesses
+       .Where(b => b.EndTime == null)
+       .OrderByDescending(b => b.StartTime)
+       .FirstOrDefaultAsync();
+    }
+
+    public async Task<IEnumerable<BatchProcess>> GetByDate(DateTime start, DateTime end, int? searchBatch = null)
     {
         var query = _context.BatchProcesses
-            .Where(b => b.StartTime >= start && b.EndTime <= end);
+            .Where(x => x.StartTime >= start && x.EndTime <= end);
 
-        if (!string.IsNullOrWhiteSpace(name))
-        {
-            string lowered = name.ToLower();
-            query = query.Where(b => b.ProductName.ToLower().Contains(lowered));
-        }
+        if (searchBatch.HasValue)
+            query = query.Where(x => x.Batch == searchBatch.Value);
 
-        return await query.ToListAsync();
+        return await query.OrderByDescending(x => x.StartTime).ToListAsync();
     }
+
+
+
+    public async Task<List<BatchProcess>> GetByBatch(int batch)
+    {
+        return await _context.BatchProcesses
+            .Where(p => p.Batch == batch)
+            .OrderBy(p => p.StartTime)
+            .ToListAsync();
+    }
+
+
 
     public async Task UpdateAsync(BatchProcess batch)
     {
