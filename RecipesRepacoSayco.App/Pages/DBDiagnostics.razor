@@ -1,5 +1,8 @@
 ﻿@page "/db-diagnostic"
 @using RecipesRepacoSayco.Data.Interfaces
+@inject IDialogService DialogService
+@using RecipesRepacoSayco.App.Shared.Components.Dialog;
+
 @inject IDatabaseDiagnostics DbDiag
 
 <MudPaper Class="pa-4 m-4">
@@ -21,12 +24,18 @@
             <MudTd>@context.Source</MudTd>
             <MudTd>@context.Command</MudTd>
             <MudTd>
-                <MudChip T="string" Color="@(context.Success? Color.Success: Color.Error)" Label="true">
-                    @(context.Success ? "OK" : "FAIL")
-                </MudChip>
-
+                <MudButton Variant="Variant.Outlined" Size="Size.Small"
+                    OnClick="@(() => ShowDialogAsync("Command", context.Command))">
+                    View
+                </MudButton>
             </MudTd>
-            <MudTd>@context.Message</MudTd>
+
+            <MudTd>
+                <MudButton Variant="Variant.Outlined" Size="Size.Small"
+                    OnClick="@(() => ShowDialogAsync("Message", context.Message))">
+                    View
+                </MudButton>
+            </MudTd>
         </RowTemplate>
     </MudTable>
 </MudPaper>
@@ -37,5 +46,19 @@
     protected override void OnInitialized()
     {
         Logs = DbDiag.GetRecentLogs();
+    }
+
+
+    private async Task ShowDialogAsync(string title, string content)
+    {
+        var parameters = new DialogParameters
+{
+{ "Title", title },
+{ "Content", content }
+};
+
+        var options = new DialogOptions { CloseOnEscapeKey = true, MaxWidth = MaxWidth.Medium, FullWidth = true };
+
+        await DialogService.ShowAsync<DialogView>("Detail", parameters, options);
     }
 }

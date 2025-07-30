@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "FzB7sERZfg4=",
+  "dgSpecHash": "XwLWELIXUtA=",
   "success": true,
   "projectFilePath": "/Users/oscarcalix/Documents/Projects/recipes_repaco_sayco/RecipesRepacoSayco.Plc/RecipesRepacoSayco.Plc.csproj",
   "expectedPackageFiles": [
+    "/Users/oscarcalix/.nuget/packages/microsoft.net.illink.tasks/8.0.13/microsoft.net.illink.tasks.8.0.13.nupkg.sha512",
     "/Users/oscarcalix/.nuget/packages/s7netplus/0.20.0/s7netplus.0.20.0.nupkg.sha512",
     "/Users/oscarcalix/.nuget/packages/microsoft.netcore.app.ref/8.0.13/microsoft.netcore.app.ref.8.0.13.nupkg.sha512",
-    "/Users/oscarcalix/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.13/microsoft.aspnetcore.app.ref.8.0.13.nupkg.sha512"
+    "/Users/oscarcalix/.nuget/packages/microsoft.netcore.app.runtime.win-x64/8.0.13/microsoft.netcore.app.runtime.win-x64.8.0.13.nupkg.sha512",
+    "/Users/oscarcalix/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.13/microsoft.aspnetcore.app.ref.8.0.13.nupkg.sha512",
+    "/Users/oscarcalix/.nuget/packages/microsoft.aspnetcore.app.runtime.win-x64/8.0.13/microsoft.aspnetcore.app.runtime.win-x64.8.0.13.nupkg.sha512"
   ],
   "logs": []
 }

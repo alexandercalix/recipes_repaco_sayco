@@ -26,12 +26,13 @@ public class BatchProcessRepository : IBatchProcessRepository
         {
             _context.BatchProcesses.Add(batch);
             await _context.SaveChangesAsync();
-            _diagnostics.LogCommand("INSERT BatchProcess", true, null, nameof(BatchProcessRepository));
+            var parameters = System.Text.Json.JsonSerializer.Serialize(batch);
+            _diagnostics.LogCommand("INSERT BatchProcess", true, parameters, nameof(BatchProcessRepository));
             return batch;
         }
         catch (Exception ex)
         {
-            _diagnostics.LogCommand("INSERT BatchProcess", false, ex.Message, nameof(BatchProcessRepository));
+            _diagnostics.LogCommand("ERROR: INSERT BatchProcess", false, ex.Message, nameof(BatchProcessRepository));
             throw;
         }
     }

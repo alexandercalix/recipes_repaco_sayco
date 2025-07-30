@@ -14,6 +14,8 @@ public class BatchProcess
     [MaxLength(100)]
     public required string RecipeName { get; set; }
 
+    public decimal? BatchSize { get; set; }
+
     public decimal? Setpoint1 { get; set; }
     public decimal? ActualValue1 { get; set; }
     public decimal? Setpoint2 { get; set; }

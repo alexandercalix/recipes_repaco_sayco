@@ -171,7 +171,7 @@ public class ExcelReportService : IExcelReportService
             worksheet.Cell(row, 5).Value = p.EndTime?.ToString("HH:mm:ss");
             worksheet.Cell(row, 6).Value = p.Batch;
             worksheet.Cell(row, 7).Value = p.RecipeName;
-            worksheet.Cell(row, 8).Value = p.Setpoint1 + p.Setpoint2 + p.Setpoint3 + p.Setpoint4 + p.Setpoint5 + p.Setpoint6;
+            worksheet.Cell(row, 8).Value = p.BatchSize;
             worksheet.Cell(row, 9).Value = p.ActualValue1 + p.ActualValue2 + p.ActualValue3 + p.ActualValue4 + p.ActualValue5 + p.ActualValue6;
             worksheet.Cell(row, 10).Value = p.ActualValue3;
             worksheet.Cell(row, 11).Value = p.ActualValue1;

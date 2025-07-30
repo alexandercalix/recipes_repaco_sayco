@@ -21,12 +21,14 @@ public class ApplicationDbContext : DbContext
 
         modelBuilder.Entity<BatchProcess>(entity =>
         {
+            entity.Property(e => e.BatchSize).HasPrecision(10, 2);
             entity.Property(e => e.Setpoint1).HasPrecision(10, 2);
             entity.Property(e => e.Setpoint2).HasPrecision(10, 2);
             entity.Property(e => e.Setpoint3).HasPrecision(10, 2);
             entity.Property(e => e.Setpoint4).HasPrecision(10, 2);
             entity.Property(e => e.Setpoint5).HasPrecision(10, 2);
             entity.Property(e => e.Setpoint6).HasPrecision(10, 2);
+
 
             entity.Property(e => e.ActualValue1).HasPrecision(10, 2);
             entity.Property(e => e.ActualValue2).HasPrecision(10, 2);

@@ -34,6 +34,7 @@ else
                             <MudText Typo="Typo.h6">
                                 Batch: @context (@GroupedBatches[context].Count @L["Quantity"])
                             </MudText>
+
                             <MudButton Class="ml-4" Variant="Variant.Outlined" Color="Color.Success" Size="Size.Small"
                                 OnClick="@(() => GenerateExcel(context))">
                                 @L["Export"]
@@ -50,6 +51,7 @@ else
                             <MudTh>@L["Product"]</MudTh>
                             <MudTh>@L["Start"]</MudTh>
                             <MudTh>@L["End"]</MudTh>
+                            <MudTh>@L["Size"]</MudTh>
                             @foreach (var label in MaterialOptions.Value.MaterialLabels)
                             {
                                 <MudTh>@label</MudTh>
@@ -57,10 +59,10 @@ else
                         </HeaderContent>
 
                         <RowTemplate Context="item">
-                            <MudTd>@item.Batch</MudTd>
+                            <MudTd>@item.RecipeName.Trim()</MudTd>
                             <MudTd>@item.StartTime.ToString("yyyy-MM-dd HH:mm")</MudTd>
                             <MudTd>@item.EndTime?.ToString("yyyy-MM-dd HH:mm")</MudTd>
-
+                            <MudTd>@item.BatchSize?.ToString("F2")</MudTd>
                             @for (int i = 1; i <= MaterialOptions.Value.MaterialLabels.Count; i++)
                             {
                                 var spProp = typeof(BatchProcess).GetProperty($"Setpoint{i}");

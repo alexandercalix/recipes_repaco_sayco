@@ -1,0 +1,28 @@
+﻿@using MudBlazor
+
+
+<MudDialog MaxWidth="MaxWidth.Medium">
+    <TitleContent>
+        @Title
+    </TitleContent>
+
+    <DialogContent>
+        <MudText Typo="Typo.body2" Class="break-all">@Content</MudText>
+    </DialogContent>
+
+    <DialogActions>
+        <MudButton OnClick="Close" Color="Color.Primary">Close</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    private IMudDialogInstance MudDialog { get; set; }
+
+
+
+    [Parameter] public string Title { get; set; }
+    [Parameter] public string Content { get; set; }
+
+    private void Close() => MudDialog.Close();
+}

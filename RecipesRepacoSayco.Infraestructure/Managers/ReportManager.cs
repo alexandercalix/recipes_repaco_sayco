@@ -82,6 +82,7 @@ public class ReportManager
             EndTime = now,
             Batch = tags.GetInt(config.BatchTag),
             RecipeName = tags.GetString(config.RecipeTag).Trim(),
+            BatchSize = tags.GetFloat(config.BatchSizeTag)
         };
 
         var setpoints = config.Setpoints.Select(tags.GetFloat).ToList(); // ahora es List<decimal?>
@@ -106,7 +107,7 @@ public class ReportManager
                 prop.SetValue(batch, actuals[i]);
         }
 
-        Console.WriteLine($"Batch: {batch.Batch}, Recipe: {batch.RecipeName}");
+        Console.WriteLine($"Batch: {batch.Batch}, Recipe: {batch.RecipeName}, Size: {batch.BatchSize}, Start: {batch.StartTime}");
 
         await batchProcessRepository.CreateAsync(batch);
     }
