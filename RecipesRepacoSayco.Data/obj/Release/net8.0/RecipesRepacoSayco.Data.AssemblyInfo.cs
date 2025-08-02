@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RecipesRepacoSayco.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f0dfaa72c2d1fb043a58b09ee4fac5d330c77ad0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4e70fc0678191a28be555d320439ec057f6d6b00")]
 [assembly: System.Reflection.AssemblyProductAttribute("RecipesRepacoSayco.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RecipesRepacoSayco.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

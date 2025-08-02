@@ -116,7 +116,7 @@ namespace RecipesRepacoSayco.Plc.Services
 
                     if (_client.IsConnected)
                     {
-                        var items = _tags.Select(t => t.Item).Where(x => x.VarType != VarType.S7String).ToList();
+                        var items = _tags.Select(t => t.Item).Where(x => x.VarType != VarType.String).ToList();
 
 
                         for (int i = 0; i < items.Count; i += 10)
@@ -127,15 +127,14 @@ namespace RecipesRepacoSayco.Plc.Services
                         }
 
                         var strings = _tags
-                            .Where(t => t.Item.VarType == VarType.S7String)
+                            .Where(t => t.Item.VarType == VarType.String)
                             .Select(t => t.Item)
                             .ToList();
 
                         if (strings.Count > 0)
                         {
-                            Console.Write("Readiing ===============");
+
                             await _client.ReadMultipleVarsAsync(strings);
-                            Console.WriteLine(" value:" + strings[0].Value);
                         }
 
 

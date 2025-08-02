@@ -68,12 +68,6 @@
               "target": "Package",
               "version": "[9.0.5, )"
             },
-            "Microsoft.NET.ILLink.Tasks": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.13, )",
-              "autoReferenced": true
-            },
             "MudBlazor": {
               "target": "Package",
               "version": "[8.7.0, )"
@@ -96,19 +90,11 @@
               "version": "[8.0.13, 8.0.13]"
             },
             {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
               "version": "[8.0.13, 8.0.13]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-x64",
               "version": "[8.0.13, 8.0.13]"
             }
           ],
@@ -121,11 +107,6 @@
             }
           },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win-x64": {
-          "#import": []
         }
       }
     },
@@ -169,14 +150,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.NET.ILLink.Tasks": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.13, )",
-              "autoReferenced": true
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -194,15 +167,7 @@
               "version": "[8.0.13, 8.0.13]"
             },
             {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-x64",
               "version": "[8.0.13, 8.0.13]"
             }
           ],
@@ -212,11 +177,6 @@
             }
           },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win-x64": {
-          "#import": []
         }
       }
     },
@@ -274,12 +234,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.5, )"
-            },
-            "Microsoft.NET.ILLink.Tasks": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.13, )",
-              "autoReferenced": true
             }
           },
           "imports": [
@@ -299,15 +253,7 @@
               "version": "[8.0.13, 8.0.13]"
             },
             {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-x64",
               "version": "[8.0.13, 8.0.13]"
             }
           ],
@@ -317,11 +263,6 @@
             }
           },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win-x64": {
-          "#import": []
         }
       }
     },
@@ -375,14 +316,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.NET.ILLink.Tasks": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.13, )",
-              "autoReferenced": true
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -400,15 +333,7 @@
               "version": "[8.0.13, 8.0.13]"
             },
             {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-x64",
               "version": "[8.0.13, 8.0.13]"
             }
           ],
@@ -418,11 +343,6 @@
             }
           },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win-x64": {
-          "#import": []
         }
       }
     },
@@ -471,12 +391,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.NET.ILLink.Tasks": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.13, )",
-              "autoReferenced": true
-            },
             "S7netplus": {
               "target": "Package",
               "version": "[0.20.0, )"
@@ -499,15 +413,7 @@
               "version": "[8.0.13, 8.0.13]"
             },
             {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-x64",
               "version": "[8.0.13, 8.0.13]"
             }
           ],
@@ -517,11 +423,6 @@
             }
           },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win-x64": {
-          "#import": []
         }
       }
     }
